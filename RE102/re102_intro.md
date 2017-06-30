@@ -3,7 +3,7 @@ layout: default
 permalink: /RE102/intro/
 title: Intro
 ---
-[Go Back to Reverse Engineering Malware 101](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
 
 # Introduction #
 
