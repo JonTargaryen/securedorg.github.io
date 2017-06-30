@@ -1,4 +1,3 @@
-
 ---
 layout: default
 permalink: /RE102/intro/
