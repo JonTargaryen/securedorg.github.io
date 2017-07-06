@@ -13,9 +13,9 @@ I personally just start by looking up the hash on [VirusTotal](https://www.virus
 
 ## File Context and Delivery ##
 
-We don’t have a victim to tell us how this file was delivered. However you can guess the intent by looking at the original filename in the properties **InternalName** and **FileDescription**. As you can see it is posing as the **Anti-Virus Malwarebytes** software. One can only guess that the malware was pretending to be an Anti-Virus so that the victim will trust it. An IT admin might even overlook the process with the name mbam.exe because it will look legit at first glance.
-
 ![alt text](https://securedorg.github.io/RE102/images/Section2_CFFexp.png "CFFexp")
+
+We don’t have a victim to tell us how this file was delivered. However you can guess the intent by looking at the original filename in the properties **InternalName** and **FileDescription**. As you can see it is posing as the **Anti-Virus Malwarebytes** software. One can only guess that the malware was pretending to be an Anti-Virus so that the victim will trust it. An IT admin might even overlook the process with the name mbam.exe because it will look legit at first glance.
 
 ## File Information & Header Analysis ##
 We already know that this sample is posing as Anti-Virus Software. How do we know it’s not legit? Because we know that this sample is **not signed** at all or [signed](https://en.wikipedia.org/wiki/Code_signing) by MalwareBytes the company. So that is already a major Red Flag.
