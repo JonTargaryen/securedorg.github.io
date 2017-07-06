@@ -24,3 +24,5 @@ Password is "infected"
 
 1. Run the Victim VM and copy over the malware.zip into the VM.
 2. Unzip ** Warning - DO NOT UNZIP THIS OUTSIDE OF THE VM **
+
+[Intro <- Back](https://securedorg.github.io/RE102/intro) | [Next -> Information Gathering](https://securedorg.github.io/RE102/section2)
