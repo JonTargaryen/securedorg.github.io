@@ -7,10 +7,15 @@ title: Setup
 
 # Section 2.1: Information Gathering Results #
 
+![alt text](https://securedorg.github.io/RE102/images/Section2_virustotal.png "virustotal")
+
 I personally just start by looking up the hash on [VirusTotal](https://www.virustotal.com) because most of the triage information is already there. If it’s not on VirusTotal, there are tools in the VMs. You can get the same information by using CFF explorer.
 
 ## File Context and Delivery ##
+
 We don’t have a victim to tell us how this file was delivered. However you can guess the intent by looking at the original filename in the properties **InternalName** and **FileDescription**. As you can see it is posing as the **Anti-Virus Malwarebytes** software. One can only guess that the malware was pretending to be an Anti-Virus so that the victim will trust it. An IT admin might even overlook the process with the name mbam.exe because it will look legit at first glance.
+
+![alt text](https://securedorg.github.io/RE102/images/Section2_CFFexp.png "CFFexp")
 
 ## File Information & Header Analysis ##
 We already know that this sample is posing as Anti-Virus Software. How do we know it’s not legit? Because we know that this sample is **not signed** at all or [signed](https://en.wikipedia.org/wiki/Code_signing) by MalwareBytes the company. So that is already a major Red Flag.
@@ -35,6 +40,8 @@ Looking at the imported functions for `User32.dll` you can see there are many AP
 
 ## Strings Review ##
 Strings always provide a good starting point for clues. It may also reveal things that the PE info was not able to provide such as extra  loaded DLLs and API functions. Another hint is looking at junk strings. Junk strings potentially means it is either an image or extra binary data being reference by the sample.  It could potentially be an encoded/encrypted/compressed payload. (muhahaha)
+
+![alt text](https://securedorg.github.io/RE102/images/Section2_junkdata.png "junkinthetrunk")
 
 ## Web search ##
 A string web search is a last resort. I usually use this step to find reports already generated for this family of malware. Unfortunately there is ton of junk data, so we can assume this sample might be packed/encrypted somehow for now.
