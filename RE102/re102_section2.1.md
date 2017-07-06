@@ -49,6 +49,9 @@ A string web search is a last resort. I usually use this step to find reports al
 ## Anti-Virus Vendors ##
 AV Vendors provide some insight into a sample besides just good or bad. There are also many heuristic and generic detections that might not be useful in telling you what the sample is going to do. Keywords like Trojan or GEN for Generic are not enough to tell you how bad it is. However the keyword Injector gives us a hint that it is doing some kind of code in memory manipulation. As we know from above, this malware has a bunch of junk code, so AV might not have enough binary features to make a definitive signature but still does well in telling you that it looks generally abnormal.
 
+*Click Image to Enlarge*
+[![alt text](https://securedorg.github.io/RE102/images/Section2_AVnames.png "AV Names")](https://securedorg.github.io/RE102/images/Section2_AVnames.png)
+
 ## VM Detonation & Network Information ##
 If you followed [RE101 Lab 1](https://securedorg.github.io/RE101/section4/) you will know how to do a simple VM detonation to collect the filesystem, process, registry and network information. You will notice that this sample does nothing really special in the VM. So we will need to investigate why.
 
