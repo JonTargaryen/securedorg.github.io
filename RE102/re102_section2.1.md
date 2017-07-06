@@ -53,4 +53,4 @@ AV Vendors provide some insight into a sample besides just good or bad. There ar
 If you followed [RE101 Lab 1](https://securedorg.github.io/RE101/section4/) you will know how to do a simple VM detonation to collect the filesystem, process, registry and network information. You will notice that this sample does nothing really special in the VM. So we will need to investigate why.
 
 
-[Section 2 <- Back](https://securedorg.github.io/RE102/section2.1) | [Next -> Section 3](https://securedorg.github.io/RE102/section3)
+[Section 2 <- Back](https://securedorg.github.io/RE102/section2) | [Next -> Section 3](https://securedorg.github.io/RE102/section3)
