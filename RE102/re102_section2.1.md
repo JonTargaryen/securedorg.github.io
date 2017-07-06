@@ -18,7 +18,12 @@ We already know that this sample is posing as Anti-Virus Software. How do we kno
 Notice that the file size is pretty small, 2.1 MB. Legitimate executables are usually much larger because they have many libraries to ensure that the program has enough resources and support for different execution environments. This file is actually larger than normal malware because of the resource sections, which I will get into later.
 
 ## Basic PE information ##
-As I explained above, the filesize is small but still larger than most malware. That’s because 2 reasons: 1) It has many resources 2) It was compiled as **Borland Delphi** (`BobSoft Mini Delphi -> BoB / BobSoft`).
+As I explained above, the filesize is small but still larger than most malware. 
+That’s because 2 reasons: 
+
+1) It has many resources
+
+2) It was compiled as **Borland Delphi** (`BobSoft Mini Delphi -> BoB / BobSoft`).
 
 Why does it matter how the sample was compiled? Because it will determine how the disassembly will be structured.
 
