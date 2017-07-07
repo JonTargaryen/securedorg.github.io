@@ -29,9 +29,10 @@ The diagram above is a high-level view of how a Delphi app executes each library
 ## Where to Start? ##
 
 So we have some options to start working backwards:
-1) Where was that junk data was referenced.
-2) Choose an import function (i.e `VirtualAlloc`).
-3) Choose a function that is not loading a library.
+
+1. Where was that junk data was referenced.
+2. Choose an import function (i.e `VirtualAlloc`).
+3. Choose a function that is not loading a library.
 
 So the goal here is making the route between the `StartExe` and choices 1,2, or 3. So let’s pick option 1 and start Lab 1 on the next page.
 
