@@ -14,6 +14,7 @@ Now it's time for static analysis by looking at the disassembly. The point of th
 Starting somewhere in the middle means picking an interesting function to look at or where a string is referenced. Many malware reverse engineers want to start at interesting API functions like the imports mentioned in Section 2. 
 
 ## Understanding Post-Compiled Structure ##
+
 Remember that this sample is Borland Delphi code. This means we will see many functions building up the Delphi libraries. These libraries are organized like object-oriented classes. Each class has an initialization function as well as references to class functions. A Delphi app will sequentially load these structures where libraries are loaded before the main function coded by the malware author. Makes sense, right? In order to use the library, you have to load them first. 
 
 ![alt text](https://securedorg.github.io/RE102/images/delphi.gif "delphi")
@@ -26,6 +27,7 @@ The diagram above is a high-level view of how a Delphi app executes each library
 [Array2](#)
 
 ## Where to Start? ##
+
 So we have some options to start working backwards:
 1) Where was that junk data was referenced.
 2) Choose an import function (i.e `VirtualAlloc`).
