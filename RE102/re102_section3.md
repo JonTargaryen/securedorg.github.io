@@ -13,24 +13,24 @@ Now it's time for static analysis by looking at the disassembly. The point of th
 
 Starting somewhere in the middle means picking an interesting function to look at or where a string is referenced. Many malware reverse engineers want to start at interesting API functions like the imports mentioned in Section 2. 
 
-Understanding Post-Compiled Structure
+## Understanding Post-Compiled Structure ##
 Remember that this sample is Borland Delphi code. This means we will see many functions building up the Delphi libraries. These libraries are organized like object-oriented classes. Each class has an initialization function as well as references to class functions. A Delphi app will sequentially load these structures where libraries are loaded before the main function coded by the malware author. Makes sense, right? In order to use the library, you have to load them first. 
 
-[Insert Picture](#)
+![alt text](https://securedorg.github.io/RE102/images/delphi.gif "delphi")
 
-The diagram above is a high-level view of how a Delphi app executes each library class. There is a pointer to a hardcoded array/list of these classes which is passed to InitExe function and then the StartExe function. It will loop through this list initializing, executing, and storing pointers to functions for later use. I have identified Main Functions as the possible interesting functions we want to look at. Below the is the disassembly equivalent of the diagram.
+The diagram above is a high-level view of how a Delphi app executes each library class. There is a pointer to a hardcoded array/list of these classes which is passed to `InitExe` function and then the `StartExe` function. It will loop through this list initializing, executing, and storing pointers to functions for later use. I have identified Main Functions as the possible interesting functions we want to look at. Below the is the disassembly equivalent of the diagram.
 
 [InitExe](#)
 
 [Array1](#)
 [Array2](#)
 
-Where to Start?
+## Where to Start? ##
 So we have some options to start working backwards:
 1) Where was that junk data was referenced.
-2) Choose an import function (i.e VirtualAlloc).
+2) Choose an import function (i.e `VirtualAlloc`).
 3) Choose a function that is not loading a library.
 
-So the goal here is making the route between the StartExe and choices 1,2, or 3. So let’s pick option 1 and start Lab 1 on the next page.
+So the goal here is making the route between the `StartExe` and choices 1,2, or 3. So let’s pick option 1 and start Lab 1 on the next page.
 
 [Section 2.1 <- Back](https://securedorg.github.io/RE102/section2.1) | [Next -> Section 3.1 Lab 1](https://securedorg.github.io/RE102/section3.1)
