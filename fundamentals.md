@@ -27,6 +27,7 @@ Please use the utility [7zip](http://www.7-zip.org/download.html). Unzip the fil
 [Victim VM](https://drive.google.com/open?id=0B_0DJl2kuzoNZkpveEtiMWJKWDA)
 
 * MD5sum: 7d4f2ff359cd74eec3cae7b16a916939 **Updated 6/30/2017**
+* Source: [Microsoft Free VirtualBox VMs](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/)
 * OS: Windows 7 Service Pack 1
 * Architecture: Intel 32bit
 * Username: victim
@@ -34,6 +35,7 @@ Please use the utility [7zip](http://www.7-zip.org/download.html). Unzip the fil
 * IP Address: 192.168.0.2
 * Gateway: 192.168.0.1
 * Zip size 3.7G, Final size required 10G
+
 
 [Sniffer VM](https://drive.google.com/open?id=0B_0DJl2kuzoNT3IwNElLV3VRdms)
 
@@ -49,8 +51,6 @@ Please use the utility [7zip](http://www.7-zip.org/download.html). Unzip the fil
 ---
 
 ### Post Install Instructions ###
-
-**Note:** If you are having problems getting the VM to run, revert to the AnalysisReady snapshot, then right-click on the VM and select discard the saved state.
 
 1. Install VirtualBox CD on both VMs: Devices->Insert Guest Additions CD Image
   * If it doesn't auto appear, navigate to the CD Drive to install
