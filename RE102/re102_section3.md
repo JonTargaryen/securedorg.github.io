@@ -38,6 +38,17 @@ So we have some options to start working backwards:
 2. Choose an import function (i.e `VirtualAlloc`).
 3. Choose a function that is not loading a library.
 
-So the goal here is making the route between the `StartExe` and choices 1,2, or 3. So let’s pick option 1 and start Lab 1 on the next page.
+So the goal here is making the route between the `StartExe` and choices 1,2, or 3. So let’s pick option 1 and start **Lab 1** on the next page.
+
+## How Should I Track My Progress? ##
+
+You should be tracking you route either by digital or regular notes. I use both. I have several moleskin notebooks that keep near my keyboard so I can quickly writedown where I am and draw my route if need be.
+
+![alt text](https://securedorg.github.io/RE102/images/Section3.1_notebook.jpg)
+
+Hopefully your notes already look something like this:
+![alt text](https://securedorg.github.io/RE102/images/Section3.1_notes.jpg)
+
+### Head to LAB 1 ###
 
 [Section 2.1 <- Back](https://securedorg.github.io/RE102/section2.1) | [Next -> Section 3.1 Lab 1](https://securedorg.github.io/RE102/section3.1)
