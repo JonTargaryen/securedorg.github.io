@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 # Workshops #
 - ## [Reverse Engineering Malware 101](https://securedorg.github.io/RE101/) ##
