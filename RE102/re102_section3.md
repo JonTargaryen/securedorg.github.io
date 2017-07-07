@@ -42,7 +42,7 @@ So the goal here is making the route between the `StartExe` and choices 1,2, or 
 
 ## How Should I Track My Progress? ##
 
-You should be tracking you route either by digital or regular notes. I use both. I have several moleskin notebooks that keep near my keyboard so I can quickly writedown where I am and draw my route if need be.
+You should be tracking your route either by digital or regular notes. I use both. I have several moleskin notebooks that I keep near my keyboard so I can quickly writedown where I am and draw my route if need be.
 
 ![alt text](https://securedorg.github.io/RE102/images/Section3.1_notebook.jpg)
 
