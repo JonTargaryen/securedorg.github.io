@@ -47,6 +47,7 @@ You should be tracking you route either by digital or regular notes. I use both.
 ![alt text](https://securedorg.github.io/RE102/images/Section3.1_notebook.jpg)
 
 Hopefully your notes already look something like this:
+
 ![alt text](https://securedorg.github.io/RE102/images/Section3.1_notes.jpg)
 
 ### Head to LAB 1 ###
