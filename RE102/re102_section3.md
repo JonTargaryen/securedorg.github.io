@@ -26,7 +26,9 @@ The diagram above is a high-level view of how a Delphi app executes each library
 [Array1](#)
 [Array2](#)
 
-## Where to Start? ##
+---
+
+# Where to Start? #
 
 So we have some options to start working backwards:
 
