@@ -21,10 +21,10 @@ Remember that this sample is Borland Delphi code. This means we will see many fu
 
 The diagram above is a high-level view of how a Delphi app executes each library class. There is a pointer to a hardcoded array/list of these classes which is passed to `InitExe` function and then the `StartExe` function. It will loop through this list initializing, executing, and storing pointers to functions for later use. I have identified Main Functions as the possible interesting functions we want to look at. Below the is the disassembly equivalent of the diagram.
 
-[InitExe](#)
+![alt text](https://securedorg.github.io/RE102/images/Section3_initexe.png "initexe")
 
-[Array1](#)
-[Array2](#)
+![alt text](https://securedorg.github.io/RE102/images/Section3_array1.png "array1")
+![alt text](https://securedorg.github.io/RE102/images/Section3_array2.png "array2")
 
 ---
 
