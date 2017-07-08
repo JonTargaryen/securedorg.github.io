@@ -32,7 +32,7 @@ Double-Click the first instance of the junk data.
 
 ![alt text](https://securedorg.github.io/RE102/images/startofjunk.png "startofjunk")
 
-At this point is should show you the location in the IDA View. Scroll up until you see a `unk` reference to the start of this data. It should say `unk_45CCD4`. We want to follow this reference in the code by selecting and then press ‘x’ to open the xrefs menu. This menu shows all the functions and locations that reference the object. Select the only function present and press `ok`.
+At this point it should show you the location in the IDA View. Scroll up until you see a `unk` reference to the start of this data. It should say `unk_45CCD4`. We want to follow this reference in the code by selecting and then press ‘x’ to open the xrefs menu. This menu shows all the functions and locations that reference the object. Select the only function present and press `ok`.
 
 *Click Image to Enlarge*
 [![alt text](https://securedorg.github.io/RE102/images/junkstrings.gif "junkstrings")](https://securedorg.github.io/RE102/images/junkstrings.gif)
