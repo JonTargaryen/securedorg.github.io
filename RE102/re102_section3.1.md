@@ -27,7 +27,11 @@ In the information gathering stage, the strings revealed that there was some jun
 
 ## Follow the Junk Data ##
 
-Double-Click the first instance of the junk data. At this point is should show you the location in the IDA View. Scroll up until you see a `unk` reference to the start of this data. It should say `unk_45CCD4`. We want to follow this reference in the code by selecting and then press ‘x’ to open the xrefs menu. This menu shows all the functions and locations that reference the object. Select the only function present and press `ok`.
+Double-Click the first instance of the junk data. 
+
+![alt text](https://securedorg.github.io/RE102/images/startofjunk.png "startofjunk")
+
+At this point is should show you the location in the IDA View. Scroll up until you see a `unk` reference to the start of this data. It should say `unk_45CCD4`. We want to follow this reference in the code by selecting and then press ‘x’ to open the xrefs menu. This menu shows all the functions and locations that reference the object. Select the only function present and press `ok`.
 
 ![alt text](https://securedorg.github.io/RE102/images/junkstrings.gif "junkstrings")
 
