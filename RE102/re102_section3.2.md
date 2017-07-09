@@ -8,8 +8,8 @@ title: Setup
 # Section 3.2: Final Travel Directions #
 
 1. Start
-2. `sub_406604` - Step into InitExe 
-3. `sub_403FA0` - Step into StartExe
+2. `sub_406604` - Step into **InitExe** 
+3. `sub_403FA0` - Step into **StartExe**
 4. `sub_403F40` - Step into This loops through the static list of functions in the references until the main function `sub_45B93C`
 5. `sub_45B93C` - Checks to see if the foreground window has changed
     1. First it will get the foreground window, then sleep for 64h then capture the foreground window again (See Section 5)
@@ -21,7 +21,7 @@ title: Setup
     1. `0045B9D9` - jnz should not jump
     2. `0045B9DE` - jnz should not jump
 8. Tries to find Atom RkLNPKJEBsQUb
-9. `sub_45B894` - Step into before_use_junkdata
+9. `sub_45B894` - Step into **before_use_junkdata**
     1. `GetConsoleCP` - Retrieves the input code page used by the console associated with the calling process. A console uses its input code page to translate keyboard input into the corresponding character value.
     2. `0045B89F` - jz should not jump
     3. Loops for 0x355aef09 times for no reason. Kill the loop by `0045B8AD` jnz to not jump.
