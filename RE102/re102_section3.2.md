@@ -27,7 +27,7 @@ title: Setup
     3. Loops for 0x355aef09 times for no reason. Kill the loop by `0045B8AD` jnz to not jump.
     4. `0045B8C4` - jnz should not jump
     5. Loops for 0x5A73350 times for no reason. Kill the loop by setting jnz to not jump.
-10. sub_45B794 - Step into **use_junkdata**
+10. `sub_45B794` - Step into **use_junkdata**
     1. `VirtualAlloc` new memory with the size of 0x65E4
     2. Nop instructions indicate foul play (See Section 5)
     3. `dword_45CCB0` value is 0x42B7
