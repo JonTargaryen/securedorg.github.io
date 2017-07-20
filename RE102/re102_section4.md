@@ -61,7 +61,7 @@ There are actually multiple loops happening in this function. Section 4.1 will g
 
 ## Usage of XOR ##
 
-The use of XOR is quite common in crypto algorithms. Like in the block cipher algorithm above the circle with a cross inside represents the XOR symbol. In assembly, you typically want to find an XOR instruction with 2 different registers. Avoid instructions like XOR eax, eax because this means it’s clearing register eax. You should see `xor [esi], al` in  function sub_45B5AC.
+The use of XOR is quite common in crypto algorithms. Like in the block cipher algorithm above the circle with a cross inside represents the XOR symbol. In assembly, you typically want to find an XOR instruction with 2 different registers. Avoid instructions like `xor eax, eax` because this means it’s clearing register eax. You should see  `xor [esi], al` in  function sub_45B5AC.
 
 ## Suspicious Instructions ##
 
