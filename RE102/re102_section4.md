@@ -34,7 +34,7 @@ We know what some of these values already mean based on the previous section. We
 eax = size_of_junk2
 edx = size_of_small_junk
 ecx = small_junk unk_45CCB4
-sub_45B5AC( 0x100, 0xBEE2, junk2, 0x1F)
+sub_45B5AC( 0x100, 0xBEE2, junk2)
 ``` 
 
 Let’s rename it all:
@@ -43,7 +43,7 @@ Let’s rename it all:
 eax = data_size
 edx= key_size
 ecx = key
-decrypt(0x100, 0xBEE2, encrypted_data, 0x1F)
+decrypt(0x100, 0xBEE2, encrypted_data)
 ```
 
 Now all we need to know is what 0x100 and 0xBEE2 represent and you might not know until you start to break down the decrypt function. Hint: 0xBEE2 is 48,866 bytes. This is large enough to be a new exe. 
