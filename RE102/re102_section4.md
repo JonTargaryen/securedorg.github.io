@@ -10,10 +10,11 @@ title: Setup
 ![alt text](https://securedorg.github.io/RE102/images/Section6_intro.gif "intro")
 
 This section will focus on generically recognizing encryption routines. In the previous section, we left off at sub_45B5AC. As you can only guess, this malware is actually using a crypto algorithm here. We can assume this based on a few initial indicators:
-Suspicious Function Arguments (e.g., large amounts of bytes used for allocation)
-* Multiple Loops
-* Usage of XOR
-* Suspicious Instructions (i.e NOP)
+
+* **Suspicious Function Arguments** (e.g., large amounts of bytes used for allocation)
+* **Multiple Loops**
+* **Usage of XOR**
+* **Suspicious Instructions** (i.e NOP)
 
 ## Suspicious Function Arguments ##
 
