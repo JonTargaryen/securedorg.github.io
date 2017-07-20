@@ -24,7 +24,7 @@ Decrypting data usually requires a few arguments to perform the encryption routi
 
 Let’s look at the arguments for function sub_45B5AC. Remember in RE101, section 1.3 explained that assembly function calls have arguments pushed onto the stack. So they are numbered in reverse order. In the image below we can see it’s pushing 4 times and saving 3 objects in 3 different registers (ecx, edx, eax).
 
-![alt text](#)
+![alt text](https://securedorg.github.io/RE102/images/Section4_functionargs.png "func_args")
 
 We know what some of these values already mean based on the previous section. We know that it recently called VirtualAlloc and moved that huge junk 2 data blob into the new memory and stored it in [ebp+var_BEEB]. We also know that the size of that data which is 0x65E4. If you click on unk_45CCB4, this data is only 32 bytes long or 0x20. So let’s build the pseudo code for this function.
 
@@ -50,11 +50,11 @@ Now all we need to know is what 0x100 and 0xBEE2 represent and you might not kno
 
 If you have taken any type of crypto class, they should go over 2 types of encryption: symmetric and asymmetric. We know that most of these algorithms perform some kind of looping over each character. Let’s take a look at a symmetric block cipher algorithm for example:
 
-![alt text](#)
+![alt text](https://securedorg.github.io/RE102/images/cipher.png "block_cipher")
 
 For every subkey K in this algorithm, it has to loop through each K to XOR and Swap. In the disassembly you will be able to see this looping, incrementing, and swapping action going on. Now let’s look at sub_45B5AC.
 
-![alt text](#)
+![alt text](https://securedorg.github.io/RE102/images/Section4_looping.png "looping")
 
 There are actually multiple loops happening in this function. Section 4.1 will go over how identifying this algorithm. This section focuses on just recognizing crypto.
 
