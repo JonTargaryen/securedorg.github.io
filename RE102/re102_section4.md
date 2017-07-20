@@ -28,18 +28,22 @@ Let’s look at the arguments for function sub_45B5AC. Remember in RE101, sectio
 
 We know what some of these values already mean based on the previous section. We know that it recently called VirtualAlloc and moved that huge junk 2 data blob into the new memory and stored it in [ebp+var_BEEB]. We also know that the size of that data which is 0x65E4. If you click on unk_45CCB4, this data is only 32 bytes long or 0x20. So let’s build the pseudo code for this function.
 
-```eax = size_of_junk2
+```
+eax = size_of_junk2
 edx = size_of_small_junk
 ecx = small_junk unk_45CCB4
-sub_45B5AC( 0x100, 0xBEE2, junk2, 0x1F)``` 
+sub_45B5AC( 0x100, 0xBEE2, junk2, 0x1F)
+``` 
 
 Let’s rename it all:
 
-```eax = data_size
+```
+eax = data_size
 edx= key_size
 ecx = key
 decrypt(0x100, 0xBEE2, encrypted_data, 0x1F)
 ```
+
 Now all we need to know is what 0x100 and 0xBEE2 represent and you might not know until you start to break down the decrypt function. Hint: 0xBEE2 is 48,866 bytes. This is large enough to be a new exe. 
 
 ## Multiple Loops ##
@@ -64,4 +68,4 @@ Using special instructions like NOP is not indicative of a decryption function. 
 
 The next page will go over identifying which decryption algorithm this malware is using.
 
-[Section 3.1 <- Back](https://securedorg.github.io/RE102/section3.1) | [Next -> Section 4.1](https://securedorg.github.io/RE102/section4.1)
+[Section 3.2 <- Back](https://securedorg.github.io/RE102/section3.2) | [Next -> Section 4.1](https://securedorg.github.io/RE102/section4.1)
