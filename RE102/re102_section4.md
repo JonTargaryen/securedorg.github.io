@@ -18,15 +18,16 @@ Suspicious Function Arguments (e.g., large amounts of bytes used for allocation)
 ## Suspicious Function Arguments ##
 
 Decrypting data usually requires a few arguments to perform the encryption routine:
-1) Key
-2) Encrypted Data
-3) Destination for Decrypted Data
 
-Let’s look at the arguments for function sub_45B5AC. Remember in RE101, section 1.3 explained that assembly function calls have arguments pushed onto the stack. So they are numbered in reverse order. In the image below we can see it’s pushing 4 times and saving 3 objects in 3 different registers (ecx, edx, eax).
+1. Key
+2. Encrypted Data
+3. Destination for Decrypted Data
+
+Let’s look at the arguments for function `sub_45B5AC`. Remember in RE101, section 1.3 explained that assembly function calls have arguments pushed onto the stack. So they are numbered in reverse order. In the image below we can see it’s pushing 4 times and saving 3 objects in 3 different registers (ecx, edx, eax).
 
 ![alt text](https://securedorg.github.io/RE102/images/Section4_functionargs.png "func_args")
 
-We know what some of these values already mean based on the previous section. We know that it recently called VirtualAlloc and moved that huge junk 2 data blob into the new memory and stored it in [ebp+var_BEEB]. We also know that the size of that data which is 0x65E4. If you click on unk_45CCB4, this data is only 32 bytes long or 0x20. So let’s build the pseudo code for this function.
+We know what some of these values already mean based on the previous section. We know that it recently called VirtualAlloc and moved that huge junk 2 data blob into the new memory and stored it in `[ebp+var_BEEB]`. We also know that the size of that data which is 0x65E4. If you click on `unk_45CCB4`, this data is only 32 bytes long or 0x20. So let’s build the pseudo code for this function.
 
 ```
 eax = size_of_junk2
