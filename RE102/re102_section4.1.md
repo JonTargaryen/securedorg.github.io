@@ -30,7 +30,7 @@ At `loc_45B5C9`, the registers that saved the key and sizes are moved into base 
 ```
 45b5cb:    mov [ebp-0xc], ecx // Key
 45b5ce:    mov [ebp-0x8], edx // Size of Key
-45b5d1:    mov [ebp-0x4], eax // Size of Shellcode 
+45b5d1:    mov [ebp-0x4], eax // Size of Junk2
 ```
 
 Remember the stack structure from RE101, local variables grow to lower addresses and parameters grow to higher addresses:
