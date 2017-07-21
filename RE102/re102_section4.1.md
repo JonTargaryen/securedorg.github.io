@@ -35,7 +35,7 @@ At loc_45B5C9, the registers that saved the key and sizes are moved into base po
 
 Remember the stack structure from RE101, local variables grow to lower addresses and parameters grow to higher addresses:
 
-![alt text](#)
+![alt text](https://securedorg.github.io/RE102/images/TheStackFrame2.png "the_stack")
 
 Now that we have all the important variables we can statically trace through this function in IDA to discover it’s algorithm.
 
@@ -60,7 +60,7 @@ If you are not familiar with hexadecimal math, shift right is also a form of div
 
 This next loop fills the stack starting at `[ebp+var_418]`. It loops for 0x100 times or 256 decimal while incrementing ebx from 0 to 256.
 
-![alt text](#)
+![alt text](https://securedorg.github.io/RE102/images/loop1.png "loop1")
 
 Ok now we are getting somewhere. What crypto algorithm uses 256 bytes with a key size of 32 bytes? Also this function is way too simple for this to be asymmetric encryption. We must assume that this is a symmetric decryption algorithm.
 
@@ -78,7 +78,7 @@ While (ebx < 256)
 
 This is what the stack should look like:
 
-![alt text](#)
+![alt text](https://securedorg.github.io/RE102/images/loop2.png "loop2")
 
 ## Loop 3: Functions applied to 0x100 characters ##
 
@@ -96,7 +96,7 @@ The second call to `sub_405268`:
 2. Arg_0 which is 0x100, 256 decimal
 3. eax
 
-![alt text](#)
+![alt text](https://securedorg.github.io/RE102/images/256bytes.png "256bytes")
 
 If you enter function `sub_405268` notice that there are a bunch of arithmetic instructions. This function is actually a modulo function. *Tip: the Pro version of IDA marks function sub_405268 as the Delphi library function System::llmod.*
 
@@ -134,11 +134,11 @@ while (i < 0x100)
 
 Let’s see if we can identify this crypto algorithm. Try google searching for “symmetric mod 256”. Your first hit might be RC4 from wikipedia.
 
-[insert meme face](#)
+![alt text](https://securedorg.github.io/RE102/images/Raisins_Face.jpg "omg")
 
 Check out that Key-scheduling algorithm on the RC4 wikipedia page. Notice any similarities from Loop 2 and Loop 3?
 
-![alt text](#)
+![alt text](https://securedorg.github.io/RE102/images/keyschedule.png "key_schedule")
 
 ## Loop 4: Loop through Junk2 data ##
 
