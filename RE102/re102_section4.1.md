@@ -37,7 +37,7 @@ Remember the stack structure from RE101, local variables grow to lower addresses
 
 ![alt text](https://securedorg.github.io/RE102/images/TheStackFrame2.png "the_stack")
 
-Now that we have all the important variables we can statically trace through this function in IDA to discover it’s algorithm.
+Now that we have all the important variables we can statically trace through this function in IDA to discover the algorithm.
 
 ## Loop 1: Saving the Key on the Stack ##
 
