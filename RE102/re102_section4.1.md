@@ -25,7 +25,7 @@ Arg_8 = junk2
 Arg_C = 0x1F 
 ```
 
-At loc_45B5C9, the registers that saved the key and sizes are moved into base pointer offsets:
+At `loc_45B5C9`, the registers that saved the key and sizes are moved into base pointer offsets:
 
 ```
 45b5cb:    mov [ebp-0xc], ecx // Key
