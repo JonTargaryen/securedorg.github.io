@@ -10,8 +10,8 @@ title: Setup
 Now it’s time to dig deeper and follow the assembly one step at a time. From the previous page we recorded which are the arguments and variables used in function `sub_45B5AC`:
 
 ```
-eax = data_size
-edx= key_size
+eax = data_size \\ 0x65E4
+edx= key_size \\ 0x20
 ecx = key
 sub_45B5AC( 0x100, 0xBEE2, junk2, 0x1F)
 ```
@@ -29,8 +29,8 @@ At `loc_45B5C9`, the registers that saved the key and sizes are moved into base 
 
 ```
 45b5cb:    mov [ebp-0xc], ecx // Key
-45b5ce:    mov [ebp-0x8], edx // Size of Key
-45b5d1:    mov [ebp-0x4], eax // Size of Junk2
+45b5ce:    mov [ebp-0x8], edx // Size of Key \\ 0x20
+45b5d1:    mov [ebp-0x4], eax // Size of Junk2 \\  0x65E4
 ```
 
 Remember the stack structure from RE101, local variables grow to lower addresses and parameters grow to higher addresses:
