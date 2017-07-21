@@ -9,7 +9,7 @@ title: Setup
 
 ![alt text](https://securedorg.github.io/RE102/images/Section6_intro.gif "intro")
 
-This section will focus on generically recognizing encryption routines. In the previous section, we left off at sub_45B5AC. As you can only guess, this malware is actually using a crypto algorithm here. We can assume this based on a few initial indicators:
+This section will focus on generically recognizing encryption routines. In the previous section, we left off at `sub_45B5AC`. As you might be able to guess, this malware is using an encryption algorithm here. The give aways are:
 
 * **Suspicious Function Arguments** (e.g., large amounts of bytes used for allocation)
 * **Multiple Loops**
@@ -18,17 +18,17 @@ This section will focus on generically recognizing encryption routines. In the p
 
 ## Suspicious Function Arguments ##
 
-Decrypting data usually requires a few arguments to perform the encryption routine:
+To decrypt data that is encrypted the malware needs:
 
 1. Key
 2. Encrypted Data
 3. Destination for Decrypted Data
 
-Let’s look at the arguments for function `sub_45B5AC`. Remember in RE101, section 1.3 explained that assembly function calls have arguments pushed onto the stack. So they are numbered in reverse order. In the image below we can see it’s pushing 4 times and saving 3 objects in 3 different registers (ecx, edx, eax).
+Let’s take a look at the arguments for `sub_45B5AC`. Remember in section 1.3 of RE 101, I explained that assembly function calls have their arguments pushed onto the stack in reverse order. To learn about the reason behind this you can check out this [article](https://en.wikipedia.org/wiki/Calling_convention). In the image below, we can see it’s pushing 4 times and saving 3 objects in 3 different registers (ecx, edx, eax).
 
 ![alt text](https://securedorg.github.io/RE102/images/Section4_functionargs.png "func_args")
 
-We know what some of these values already mean based on the previous section. We know that it recently called VirtualAlloc and moved that huge junk 2 data blob into the new memory and stored it in `[ebp+var_BEEB]`. We also know that the size of that data which is 0x65E4. If you click on `unk_45CCB4`, this data is only 32 bytes long or 0x20. So let’s build the pseudo code for this function.
+Based on previous sections, it should be already obvious to you what these values mean. We know that the malware recently called `VirtualAlloc`, and moved **junk 2** of size **0x65E4** into the new memory stored it in `[ebp+var_BEEB]`. If you click on `unk_45CCB4`, you will see that this data is only 0x20 (32 dec) bytes. So, the pseudo code for this function would be:
 
 ```
 eax = size_of_junk2
@@ -50,11 +50,11 @@ Now all we need to know is what 0x100 and 0xBEE2 represent and you might not kno
 
 ## Multiple Loops ##
 
-If you have taken any type of crypto class, they should go over 2 types of encryption: symmetric and asymmetric. We know that most of these algorithms perform some kind of looping over each character. Let’s take a look at a symmetric block cipher algorithm for example:
+Cryptographic algorithms are often grouped into two major categories: symmetric and asymmetric. Most of these algorithms in order to perform some sort of shuffling to the plaintext need to loop over each or blocks of characters. Let’s take a look at a structure used in many symmetric block cipher algorithms:
 
 ![alt text](https://securedorg.github.io/RE102/images/cipher.png "block_cipher")
 
-For every subkey K in this algorithm, it has to loop through each K to XOR and Swap. In the disassembly you will be able to see this looping, incrementing, and swapping action going on. Now let’s look at sub_45B5AC.
+For every subkey K in this algorithm, it has to loop through each K to XOR and Swap. In the disassembly you will be able to see this looping, incrementing, and swapping action going on. Now let’s look at `sub_45B5AC`.
 
 ![alt text](https://securedorg.github.io/RE102/images/Section4_looping.png "looping")
 
@@ -62,12 +62,16 @@ There are actually multiple loops happening in this function. Section 4.1 will g
 
 ## Usage of XOR ##
 
-The use of XOR is quite common in crypto algorithms. Like in the block cipher algorithm above the circle with a cross inside represents the XOR symbol. In assembly, you typically want to find an XOR instruction with 2 different registers. Avoid instructions like `xor eax, eax` because this means it’s clearing register eax. You should see  `xor [esi], al` in  function sub_45B5AC.
+Bitwise operator, XOR, is the bare bone of symmetric key encryption algorithms. Like in the block cipher algorithm above the circle with a cross inside represents the XOR symbol. When reversing assembly code to identify the usage of cryptographic algorithms, you typically want to look for XOR instruction with 2 different registers.
+
+**Note**: Do not mistake instructions such as xor eax, eax for usage of crypto, because they are usually used for clearing out a register (e.g., eax in this case). 
+
+In function `sub_45B5AC`, `xor [esi], al`, is another nice indicator of encryption usage. 
 
 ## Suspicious Instructions ##
 
-Using special instructions like NOP is not indicative of a decryption function. However it’s an indicator that the malware author didn’t want the function to be analyzed and detected. Inserting NOPs changes the bytecode making it harder for AV signatures to detect the byte patterns. All these NOPs means we are in the right spot to start digging deeper.
+In the beginning of this section, I mentioned you need to be suspicious of NOP instructions; however, they are not indicators for usage of cryptographic algorithms. They usually show  that the malware author did not want the function to be analyzed or detected. Inserting NOPs changes the patterns of the bytecode of a binary, and makes it harder for AV’s signatures to detect those patterns. As an analyst when I see these NOPs, I can usually tell that I am in the right spot (or a spot that the malware author does not want me to be), so I start digging deeper.
 
-The next page will go over identifying which decryption algorithm this malware is using.
+The next subsection will go over identifying which cryptographic algorithm this malware is using.
 
 [Section 3.2 <- Back](https://securedorg.github.io/RE102/section3.2) | [Next -> Section 4.1](https://securedorg.github.io/RE102/section4.1)
