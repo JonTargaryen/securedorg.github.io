@@ -43,6 +43,8 @@ Now that we have all the important variables we can statically trace through thi
 
 We know that Arg_C is 0x1F which is 31 decimal. And the size of the Key is 0x20 which is 32 decimal. Like a normal “for” loop arrays start from 0. As you can guess this represents Key_Size -1. This gets saved into register `ebx`
 
+![alt text](https://securedorg.github.io/RE102/images/loop1.png "loop1")
+
 If you are not familiar with hexadecimal math, shift right is also a form of division. `shr ebx, 2` means it is dividing 0x1F by 0x2. This is 31 divided by 4. Why 4? Because there can only be 4 bytes at a time on the 32 bit stack. As it loops through the Key (ecx) is pushes/saves 4 byte chunks onto the stack. It should look something like this:
 
 ```
@@ -60,7 +62,7 @@ If you are not familiar with hexadecimal math, shift right is also a form of div
 
 This next loop fills the stack starting at `[ebp+var_418]`. It loops for 0x100 times or 256 decimal while incrementing ebx from 0 to 256.
 
-![alt text](https://securedorg.github.io/RE102/images/loop1.png "loop1")
+![alt text](https://securedorg.github.io/RE102/images/loop2.png "loop2")
 
 Ok now we are getting somewhere. What crypto algorithm uses 256 bytes with a key size of 32 bytes? Also this function is way too simple for this to be asymmetric encryption. We must assume that this is a symmetric decryption algorithm.
 
@@ -78,7 +80,7 @@ While (ebx < 256)
 
 This is what the stack should look like:
 
-![alt text](https://securedorg.github.io/RE102/images/loop2.png "loop2")
+![alt text](https://securedorg.github.io/RE102/images/256bytes.png "256bytes")
 
 ## Loop 3: Functions applied to 0x100 characters ##
 
@@ -96,7 +98,7 @@ The second call to `sub_405268`:
 2. Arg_0 which is 0x100, 256 decimal
 3. eax
 
-![alt text](https://securedorg.github.io/RE102/images/256bytes.png "256bytes")
+![alt text](https://securedorg.github.io/RE102/images/loop3.png "loop3")
 
 If you enter function `sub_405268` notice that there are a bunch of arithmetic instructions. This function is actually a modulo function. *Tip: the Pro version of IDA marks function sub_405268 as the Delphi library function System::llmod.*
 
