@@ -56,4 +56,4 @@ There are many tools and scripts available that help you convert shellcode into 
 
 Finally, open the decrypted_shellcode.exe into IDA for Section 5.
 
-[Section 4.3 <- Back](https://securedorg.github.io/RE102/section4.3) | [Next -> Section 5](https://securedorg.github.io/RE102/section5)
+[Section 4.2 <- Back](https://securedorg.github.io/RE102/section4.2) | [Next -> Section 5](https://securedorg.github.io/RE102/section5)
