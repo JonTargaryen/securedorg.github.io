@@ -112,7 +112,7 @@ If you run the script above you will get some terribly decrypted data. Why? Beca
 
 ## Run the Correct Decrypt Algorithm ##
 
-This python script has the correct decryption algorithm: **[decrypt_shellcode.py](https:\\securedorg.github.io/RE102/decrypt_shellcode.py)**
+This python script has the correct decryption algorithm: **[decrypt_shellcode.py](https://github.com/securedorg/securedorg.github.io/blob/master/RE102/decrypt_shellcode.py)**
 
 
 In the Victim VM, open up the command prompt and run the following line. Replace location to the folder you stored the bin files and script.
