@@ -52,7 +52,7 @@ There are many tools and scripts available that help you convert shellcode into 
     golink /ni /entry Start decrypted_shellcode.obj
     ```
 
-8. Open shellcode.exe with CFF explorer and open the NT Headers->Optional Headers->AddressOfEntryPoint. Add the current value to 0x4B27 which was the offset of where the malware was going to return to in function `sub_45B794`. AddressOfEntryPoint should be 000052B7. This will ensure that IDA knows where to start the disassembly.
+8. Open shellcode.exe with CFF explorer and open the **NT Headers->Optional Headers->AddressOfEntryPoint**. Add the current value to 0x4B27 which was the offset of where the malware was going to return to in function `sub_45B794`. AddressOfEntryPoint should be 000052B7. This will ensure that IDA knows where to start the disassembly.
 
 Finally, open the decrypted_shellcode.exe into IDA for Section 5.
 
