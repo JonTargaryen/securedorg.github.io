@@ -37,25 +37,20 @@ There are many tools and scripts available that help you convert shellcode into 
 4. Extract golink.exe
 
 5. Create a **decrypted_shellcode.asm** file with the following instructions
-
-```
-Global Start 
-SECTION 'AyyLmao' write, execute,read 
-Start:       
-incbin "decrypted_shellcode.bin"  
-```
-
+    ```
+    Global Start 
+    SECTION 'AyyLmao' write, execute,read 
+    Start:       
+    incbin "decrypted_shellcode.bin"  
+    ```
 6. From a command line run the following command to assemble the code:
-
-```
-yasm.exe -f win32 -o decrypted_shellcode.obj decrypted_shellcode.asm
-```
-
+    ```
+    yasm.exe -f win32 -o decrypted_shellcode.obj decrypted_shellcode.asm
+    ```
 7. Now run the linker
-
-```
-golink /ni /entry Start decrypted_shellcode.obj
-```
+    ```
+    golink /ni /entry Start decrypted_shellcode.obj
+    ```
 
 8. Open shellcode.exe with CFF explorer and open the NT Headers->Optional Headers->AddressOfEntryPoint. Add the current value to 0x4B27 which was the offset of where the malware was going to return to in function `sub_45B794`. AddressOfEntryPoint should be 000052B7. This will ensure that IDA knows where to start the disassembly.
 
