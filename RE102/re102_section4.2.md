@@ -1,11 +1,11 @@
 ---
 layout: default
-permalink: /RE102/section4.1/
+permalink: /RE102/section4.2/
 title: Setup
 ---
 [Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
 
-# Section 4.1:  Writing a Decryptor #
+# Section 4.2:  Writing a Decryptor #
 
 ## The Return Address ##
 
