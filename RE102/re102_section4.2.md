@@ -108,7 +108,7 @@ with open(sys.argv[1], 'rb') as key_file, open(sys.argv[2], 'rb') as encrypted, 
 
 ![alt text](https://securedorg.github.io/RE102/images/error.gif "error")
 
-If you run the script above you will get some terribly decrypted data. Why? Because there is an error in the RC4 algorithm implemented by the malware author. Between Loop 3 and Loop 4 the register that stores the j variable was not reseted after the key schedule is made.
+If you run the script above you will get some terribly decrypted data. Why? Because there is an error in the RC4 algorithm implemented by the malware author. Between Loop 3 and Loop 4 the register that stores the j variable was not reset to zero after the key schedule is made.
 
 ## Run the Correct Decrypt Algorithm ##
 
