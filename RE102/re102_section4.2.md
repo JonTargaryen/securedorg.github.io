@@ -118,7 +118,7 @@ This python script has the correct decryption algorithm: **[decrypt_shellcode.py
 In the Victim VM, open up the command prompt and run the following line. Replace location to the folder you stored the bin files and script.
 
 ```
- c:\Python27\python.exe <location>\decrypt_shellcode.py  %location%\key.bin  %location%\shellcode.bin
+ c:\Python27\python.exe <location>\decrypt_shellcode.py  <location>\key.bin  <location>\shellcode.bin
 ```
 
 Now that you have the decrypted shellcode let’s turn it into an exe so we can analyze it in IDA. The next page will provide these instructions.
