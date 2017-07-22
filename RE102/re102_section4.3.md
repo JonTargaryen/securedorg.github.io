@@ -26,13 +26,13 @@ There are many tools and scripts available that help you convert shellcode into 
 
 1. Download Yasm
 
-[http://www.tortall.net/projects/yasm/releases/yasm-1.3.0-win32.exe](http://www.tortall.net/projects/yasm/releases/yasm-1.3.0-win32.exe)
+    [http://www.tortall.net/projects/yasm/releases/yasm-1.3.0-win32.exe](http://www.tortall.net/projects/yasm/releases/yasm-1.3.0-win32.exe)
 
 2. Extract **yasm-1.3.0-win32.exe** and rename it to **yasm.exe**
 
 3. Download GoLink linker
 
-[http://www.godevtool.com/Golink.zip](http://www.godevtool.com/Golink.zip)
+    [http://www.godevtool.com/Golink.zip](http://www.godevtool.com/Golink.zip)
 
 4. Extract golink.exe
 
@@ -45,7 +45,7 @@ Start:
 incbin "decrypted_shellcode.bin"  
 ```
 
-6.From a command line run the following command to assemble the code:
+6. From a command line run the following command to assemble the code:
 
 ```
 yasm.exe -f win32 -o decrypted_shellcode.obj decrypted_shellcode.asm
