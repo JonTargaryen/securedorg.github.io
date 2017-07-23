@@ -22,7 +22,7 @@ Keep in mind that you don’t need to do this step, but converting it to an exe 
 ...
 ```
 
-There are many tools and scripts available that help you convert shellcode into an exe like [shellcode2exe.py](https://github.com/securedorg/shellcode_tools/blob/master/shellcode2exe.py). However I have found that Hexacon provided a nice [tutorial for converting shellcode into an executable](http://www.hexacorn.com/blog/2015/12/10/converting-shellcode-to-portable-executable-32-and-64-bit/). This section will be using this YASM and GoLink to create the executable while using CFF explorer to edit the binary header. 
+There are many tools and scripts available that help you convert shellcode into an exe like [shellcode2exe.py](https://github.com/securedorg/shellcode_tools/blob/master/shellcode2exe.py). However I have found that [Hexacorn](https://twitter.com/Hexacorn) provided a nice [tutorial for converting shellcode into an executable](http://www.hexacorn.com/blog/2015/12/10/converting-shellcode-to-portable-executable-32-and-64-bit/). This section will be using this YASM and GoLink to create the executable while using CFF explorer to edit the binary header. 
 
 1. Download Yasm
 
