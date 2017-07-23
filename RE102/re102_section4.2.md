@@ -9,7 +9,7 @@ title: Setup
 
 ## The Return Address ##
 
-Before we begin to decrypt the Junk2 data, let’s first jump back to the function that calls the decryption function in `sub_45B794`. Remember that dword that you saved earlier in the road map? The value 0x42B7 was added to the address of the newly allocated memort from VirtualAlloc. This value Offset+0x42B7 is being saved in register `esi` and then **pushed** onto the stack before the function returns. Typically functions will **pop** the `ebp` on the stack to return to the stack frame of the calling function. Here the eip will return to Offset+42B7 which is where our decrypted junk2 data will be. 
+Before we begin to decrypt the Junk2 data, let’s first jump back to the function that calls the decryption function in `sub_45B794`. Remember that dword that you saved earlier in the road map? The value 0x42B7 was added to the address of the newly allocated memory from VirtualAlloc. This value Offset+0x42B7 is being saved in register `esi` and then **pushed** onto the stack before the function returns. Typically functions will **pop** the `ebp` on the stack to return to the stack frame of the calling function. Here the eip will return to Offset+42B7 which is where our decrypted junk2 data will be. 
 
 You should recognize that the malware plans to execute the encrypted Junk2 data here. Now we know the purpose of the Junk2 data which is Position Independent Code (PIC) more typically known as Shellcode. 
 
