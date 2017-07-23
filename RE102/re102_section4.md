@@ -7,7 +7,7 @@ title: Setup
 
 # Section 4: Identifying Encrypted Data #
 
-![alt text](https://securedorg.github.io/RE102/images/Section6_intro.gif "intro")
+![alt text](https://securedorg.github.io/RE102/images/Section4_intro.gif "intro")
 
 This section will focus on generically recognizing encryption routines. In the previous section, we left off at `sub_45B5AC`. As you might be able to guess, this malware is using an encryption algorithm here. The give aways are:
 
