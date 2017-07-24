@@ -64,12 +64,12 @@ The second instruction `mov eax, [eax+0Ch]` gets the address of the PEB Loader D
 
 ```
 struct PEB_LDR_DATA {
-    DWORD Length;					; 0
-    BYTE Initialized;				; 4
-    void* SsHandle;					; 8
-    struct LIST_ENTRY InLoadOrderModuleList;	; 0ch
-    struct LIST_ENTRY InMemoryOrderModuleList;	; 14h
-    struct LIST_ENTRY InInitializationOrderModuleList;; 1ch
+    DWORD Length;					    ; 0
+    BYTE Initialized;				    ; 4
+    void* SsHandle;					    ; 8
+    struct LIST_ENTRY InLoadOrderModuleList;	    ; 0ch
+    struct LIST_ENTRY InMemoryOrderModuleList;	    ; 14h
+    struct LIST_ENTRY InInitializationOrderModuleList;  ; 1ch
 };
 ```
 Save these functions `sub_402B1C` and `sub_405421` for debugging later. Also include these into your road map for the shellcode executable.
