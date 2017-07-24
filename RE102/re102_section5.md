@@ -23,6 +23,8 @@ Going forward, you should be viewing the disassembly in graph mode. It will be e
 
 There are no strings for us to investigate and there are no functions parsed by IDA. Tip: The professional version of IDA does a great job at parsing functions. So you need to start exploring each function one by one finding interesting code to look at. If this is too daunting, then manual debugging is your next option. The goal is to make a road map of shellcode by working backwards.
 
+Note: In IDA, to flip back and forth between **Text View** and **Graph View** use the spacebar. This will help you collect the offsets while also view the control flow.
+
 ## String Obfuscation ##
 
 The first function call sub_404C1E doesn’t look like something interesting, so move on to the next function call to `sub_402B1C`. This function is a jump-wrapper for the function `sub_4059A3`.
@@ -46,8 +48,7 @@ With shellcode or position independent code (PIC), the code needs to load resour
 
 ### Access to the Process Environment Block (PEB) ###
 
-After the advapi32 string gets loaded onto the stack, enter the function `sub_405421`.  
-This function is accessing the FS segment register `fs:[0x30]` which is the pointing to the Process Environment Block. This is a common shellcode tactic to get handles to loaded windows libraries a.k.a. Modules, specifically the base of kernel32 from the PEB.
+After the advapi32 string gets loaded onto the stack, enter the function `sub_405421`. This function is accessing the FS segment register `fs:[0x30]` which is the pointing to the Process Environment Block. This is a common shellcode tactic to get handles to loaded windows libraries a.k.a. Modules, specifically the base of kernel32 from the PEB.
 
 ```    
 mov     eax, 30h
