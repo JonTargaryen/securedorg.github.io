@@ -60,7 +60,7 @@ mov     eax, [eax+18h] ; get Kernel32
 
 ![alt text](https://securedorg.github.io/RE102/images/PEB.gif "PEB")
 
-The second instruction `mov eax, [eax+0Ch]` gets the address of the PEB Loader Data from the [PEB](https://msdn.microsoft.com/en-us/library/windows/desktop/aa813706%28v=vs.85%29.aspx) struct. The [PEB_LDR_DATA](https://msdn.microsoft.com/en-us/library/windows/desktop/aa813708(v=vs.85).aspx) contains the struct for the InMemoryOrderModuleList which is where it gets the pointer for Kernel32. Note: there are many great Shellcode resources available that explain this technique. I just want you to recognize the instruction `fs:[0x30]`.
+The second instruction `mov eax, [eax+0Ch]` gets the address of the PEB Loader Data from the [PEB](https://msdn.microsoft.com/en-us/library/windows/desktop/aa813706%28v=vs.85%29.aspx) struct. The [PEB_LDR_DATA](https://msdn.microsoft.com/en-us/library/windows/desktop/aa813708(v=vs.85).aspx) contains the struct for the InLoadOrderModuleList which is where it gets the pointer for Kernel32. Note: there are many great Shellcode resources available that explain this technique. I just want you to recognize the instruction `fs:[0x30]`.
 
 ```
 struct PEB_LDR_DATA {
