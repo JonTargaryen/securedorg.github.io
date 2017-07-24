@@ -19,8 +19,6 @@ title: Intro
 
 * Learn how to identify an encryption algorithm
 
-* Execute an assembly program using the Unicorn Engine
-
 * Identify a custom packing technique
 
 
