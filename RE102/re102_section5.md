@@ -90,7 +90,8 @@ It seems the malware author wanted to detect if this executable contained string
 
 ![alt text](https://securedorg.github.io/RE102/images/checkname.png "checkname")
 
-Time to Start Debugging
+## Time to Start Debugging ##
+
 After `jz loc_405272` there is a call to [esp+1Ch] this is actually calling a Windows API call that was loaded there by the loaded library function `sub_402B1C`. It would be tedious to go through those locations by hand, so let’s start debugging.
 
 ![alt text](https://securedorg.github.io/RE102/images/startdebugging.png "startdebugging")
