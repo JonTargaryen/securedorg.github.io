@@ -23,7 +23,7 @@ Going forward, you should be viewing the disassembly in graph mode. It will be e
 
 There are no strings for us to investigate and there are no functions parsed by IDA. Tip: The professional version of IDA does a great job at parsing functions. So you need to start exploring each function one by one finding interesting code to look at. If this is too daunting, then manual debugging is your next option. The goal is to make a road map of shellcode by working backwards.
 
-Note: In IDA, to flip back and forth between **Text View** and **Graph View** use the spacebar. This will help you collect the offsets while also view the control flow.
+**TIP:** In IDA, to flip back and forth between **Text View** and **Graph View** use the spacebar. This will help you collect the offsets while also view the control flow.
 
 ## String Obfuscation ##
 
