@@ -87,7 +87,7 @@ The strings are:
 * sandbox
 * virus
 
-It seems the malware author wanted to detect if this executable contained strings related to malware analysis. You will need to debug this function to see which string it’s comparing these values. You will want to avoid this function because you need to get around the anti-analysis detection. Remember that functions return 0 or 1 in `eax` depending on the success or failure. We want this function to fail or return 1 because you want to get around these traps. Below the instruction `cmp eax, 1` and `jz loc_405272` is where the comparison to the return value occurs. During debugging, you would want to force the jump by changing the EFlags.
+It seems the malware author wanted to detect if this executable contained strings related to malware analysis. You will need to debug this function to see which string it’s comparing these values. You will want to avoid this function because you need to get around the anti-analysis detection. Remember that functions return 0 or 1 in `eax` depending on the success or failure. We want this check to fail because you want to get around these traps. Below the instruction `cmp eax, 1` and `jz loc_405272` is where the comparison to the return value occurs. During debugging, you would want to force the jump by changing the EFlags.
 
 ![alt text](https://securedorg.github.io/RE102/images/checkname.png "checkname")
 
