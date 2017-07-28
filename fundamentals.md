@@ -52,16 +52,22 @@ Please use the utility [7zip](http://www.7-zip.org/download.html). Unzip the fil
 
 ### Post Install Instructions ###
 
-1. Install VirtualBox CD on both VMs: Devices->Insert Guest Additions CD Image
+1. Install VirtualBox CD on both VMs: Devices->Insert Guest Additions CD Image. For VMware Tools: VM->Install VMware Tools from the VMware Workstation menu
   * If it doesn't auto appear, navigate to the CD Drive to install
   * Follow install directions from the Guest Additions Dialog
   * Note: it will require install privileges so insert passwords for each VM
-  * Shutdown Both VMs after you have installed the Guest Additions CD.
-2. Victim VM: Devices->Drag and Drop->Bidrectional 
-3. Victim VM: Devices->Shared Clipboard->Bidirectional
-4. Both VMs: Devices->Network->Network Settings
-  *  Select Attached to `Internal Network`
-  *  Name should mirror both VMs. Default is `intnet`
+  * Shutdown Both VMs after you have installed the Guest Additions CD or VM Tools CD
+2. Victim VM: 
+  * Vbox: Devices->Drag and Drop->Bidrectional
+  * VMware: Virtual Machine Settings->Guest isolation. Enable drag and drop to and from this virtual machine.
+3. Victim VM: 
+  * Vbox: Devices->Shared Clipboard->Bidirectional
+4. Both VMs: 
+  * Vbox: Devices->Network->Network Settings
+    * Select Attached to `Internal Network`
+    * Name should mirror both VMs. Default is `intnet`
+  * Vmware: Virtual Machine Settings->Network, add a NAT network such as VMnet8.
+    * Name should mirror both VMs.
 5. Run/Play both VMs to verify network connectivity
   * **Important** While running, take a snapshot of each VM and name each "Clean". This will save a clean slate for you to revert the VM image back to.
 6. Sniffer VM: Ensure `inetsim` is running
