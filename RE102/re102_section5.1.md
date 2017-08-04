@@ -70,7 +70,7 @@ Once you exported the resource 1000, open the decrypted_shellcode.exe with CFF e
 
 ## Saving Junk and Chunks in Memory ##
 
-Keep stepping until you reach `0040416F` where you will see that the resource is being placed into a new memory allocation. Remember that VirtualAlloc is typically followed by a Move function. After the VirtualAlloc function is returned make sure you note the address of the newly allocated memory. This function will return that memory address value in the `eax` register. Once the value is in `eax` right click on the address and view the address in any of the dumps.
+Keep stepping until you reach `0040416F` where you will see that the resource is being placed into a new memory allocation. Remember that VirtualAlloc is typically followed by a Move function. After the VirtualAlloc function is returned make sure you note the address of the newly allocated memory. This function will return that memory address value in the `eax` register. In the register pane in x32dbg, right click on the `eax` address and view the address in any of the dumps.
 
 ![alt text](https://securedorg.github.io/RE102/images/savingresource.png "savingresource")
 
