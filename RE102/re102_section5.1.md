@@ -7,7 +7,7 @@ title: Setup
 
 # Section 5.1: Debugging #
 
-Debugging should be your last resort because it can be time consuming. The purpose of doing static analysis is to know where you are. Be sure to take a VM snapshot before you begin debugging. This snapshot will come in handy when you accidently run the malware sample. Frequent snapshots save your debugging work so you won’t lose your place.
+Debugging should be your last resort because it can be time consuming. The purpose of doing static analysis is to know where you are. Be sure to take a VM snapshot before you begin debugging. This snapshot will come in handy when you accidently run the malware sample. Frequent VM snapshots save your debugging work so you won’t lose your place. You can always revert back to your last snapshot.
 
 ## Create the Breakpoints ##
 
@@ -70,7 +70,7 @@ Once you exported the resource 1000, open the decrypted_shellcode.exe with CFF e
 
 ## Saving Junk and Chunks in Memory ##
 
-Keep stepping until you reach `0040416F` where you will see that the resource is being placed into a new memory allocation. Remember that VirtualAlloc is typically followed by a Move function. After the VirtualAlloc function is returned make sure you note the address of the newly allocated memory. This function will return that memory address value in the `eax` register.
+Keep stepping until you reach `0040416F` where you will see that the resource is being placed into a new memory allocation. Remember that VirtualAlloc is typically followed by a Move function. After the VirtualAlloc function is returned make sure you note the address of the newly allocated memory. This function will return that memory address value in the `eax` register. Once the value is in `eax` right click on the address and view the address in any of the dumps.
 
 ![alt text](https://securedorg.github.io/RE102/images/savingresource.png "savingresource")
 
@@ -107,7 +107,7 @@ In IDA, glance through function `sub_403BC2`. There are 3 hints that give away w
 
 If you remember from the previous Section 4, multiple loops and the use XOR is indicative of being some kind of crypto algorithm. There is a theme of crypto here but there just a slight difference. The use of anding a value with 800000FFh is also a form of modulo for `X mod 256`. Earlier we saw that the modified RC4 algorithm was using a delphi mod function instead.
 
-Looks like the is using RC4 again, but you might want to step through the algorithm to confirm if it’s true RC4 or modified RC4 like from Section 4. Once you have you will notice that the first 32 bytes (0x20) decrypted the rest of the CopiedData 760 bytes (0x2F8). Be sure to save the address of this memory in your notes and renaming functions in IDA because you will need it for Section 6.
+Looks like the is using RC4 again, but you might want to step through the algorithm to confirm if it’s true RC4 or modified RC4 like from Section 4. The first 32 bytes (0x20) decrypted the rest of the CopiedData 760 bytes (0x2F8). Be sure to save the address of this memory in your notes and renaming functions in IDA because you will need this information for Section 6.
 
 Step through until you reach `loc_401CCA` and continue to the next page.
 
