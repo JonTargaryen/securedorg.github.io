@@ -102,8 +102,16 @@ At this point it’s too early to guess what this data does.
 ```
 In IDA, glance through function `sub_403BC2`. There are 3 hints that give away what this function is doing.
 * The use of 0x100 and 0x20
+
+![alt text](https://securedorg.github.io/RE102/images/318_256.png "318_256")
+
 * Multiple loops
+
+![alt text](https://securedorg.github.io/RE102/images/318loop.png "318loop")
+
 * The use of XOR
+
+![alt text](https://securedorg.github.io/RE102/images/318xor.png "318xor")
 
 If you remember from the previous Section 4, multiple loops and the use XOR is indicative of being some kind of crypto algorithm. There is a theme of crypto here but there just a slight difference. The use of anding a value with 800000FFh is also a form of modulo for `X mod 256`. Earlier we saw that the modified RC4 algorithm was using a delphi mod function instead.
 
